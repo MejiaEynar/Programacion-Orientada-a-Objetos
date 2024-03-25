@@ -50,25 +50,37 @@ void Mayorque(int a, int b, int c) {
 
 int main(){
     int opcion, n1, n2, n3;
-    
+      
+    printf("Seleccione la operacion:\n");
+    printf("1) Si un numero es positivo, negativo o cero.\n");
+    printf("2) Si un numero es par o impar.\n");
+    printf("3) Si un numero es multiplo de 2 o de 3.\n");
+    printf("4) El mayor de tres numeros.\n");
+    printf("Ingrese el numero: ");
     scanf("%d", &opcion);
 
     switch (opcion) {
         case 1:
+            printf("Ingrese un numero: ");
             scanf("%d", &n1);
             posOneg(n1);
             break;
         case 2:
+            printf("Ingrese un numero: ");
             scanf("%d", &n1);
             parOinpar(n1);
             break;
         case 3:
+            printf("Ingrese un numero: ");
             scanf("%d", &n1);
             multiplo2o3(n1);
             break;
         case 4:
+            printf("Ingrese el primer numero: ");
             scanf("%d", &n1);
+            printf("Ingrese el segundo numero: ");
             scanf("%d", &n2);
+            printf("Ingrese el tercer numero: ");
             scanf("%d", &n3);
             mayorDeTres(n1, n2, n3);
             break;
