@@ -49,17 +49,33 @@ void Mayorque(int a, int b, int c) {
 }
 
 int main(){
-    switch(){
+    int opcion, n1, n2, n3;
+    
+    scanf("%d", &opcion);
+
+    switch (opcion) {
         case 1:
+            scanf("%d", &n1);
+            posOneg(n1);
             break;
         case 2:
+            scanf("%d", &n1);
+            parOinpar(n1);
             break;
         case 3:
+            scanf("%d", &n1);
+            multiplo2o3(n1);
             break;
         case 4:
+            scanf("%d", &n1);
+            scanf("%d", &n2);
+            scanf("%d", &n3);
+            mayorDeTres(n1, n2, n3);
             break;
         default:
-            printf("Opcion no Valida\n");
+            printf("Opcion no valida\n");
             break;
     }
+    
+    return 0;
 }
