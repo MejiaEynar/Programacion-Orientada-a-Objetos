@@ -1,7 +1,13 @@
 #include <stdio.h>
 
-void posOneg(){
-
+void posOneg(int n){
+    if(n > 0){
+        printf("El numero es positivo\n");
+    }else if(n < 0){
+        printf("El numero es negativo\n");
+    }else {
+        printf("El numero es 0\n");
+    }
 }
 
 void parOinpar(){
