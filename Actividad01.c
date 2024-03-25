@@ -19,7 +19,15 @@ void parOinpar(){
 }
 
 void Multiplo2o3(){
-
+    if (n % 2 == 0 && n % 3 == 0) {
+        printf("Es multiplo de ambos 2 y 3\n");
+    } else if (n % 2 == 0) {
+        printf("Es multiplo de 2\n");
+    } else if (n % 3 == 0) {
+        printf("Es multiplo de 3\n");
+    } else {
+        printf("No es multiplo de ninguno de los dos\n");
+    }
 }
 
 void Mayorque(){
