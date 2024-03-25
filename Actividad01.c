@@ -11,7 +11,11 @@ void posOneg(int n){
 }
 
 void parOinpar(){
-
+    if(n % 2 == 0){
+        printf("El numero es par\n");
+    }else {
+        printf("El numero no es par\n");
+    }
 }
 
 void Multiplo2o3(){
