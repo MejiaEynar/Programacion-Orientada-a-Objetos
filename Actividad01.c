@@ -36,15 +36,15 @@ void Mayorque(int a, int b, int c) {
         } else if (b > a && b > c) {
             printf("El segundo numero es el mayor\n");
         } else if(c > a && c > b){
-        printf("El tercer numero es el mayor\n");
+            printf("El tercer numero es el mayor\n");
         } else if (a == b && b > c) {
-        printf("El primer y segundo numero son iguales y mayores que el tercero\n");
+            printf("El primer y segundo numero son iguales y mayores que el tercero\n");
         } else if (a == c && c > b) {
-        printf("El primer y tercer numero son iguales y mayores que el segundo\n");
+            printf("El primer y tercer numero son iguales y mayores que el segundo\n");
         } else if (b == c && c > a) {
-        printf("El segundo y tercer numero son iguales y mayores que el primero\n");
+            printf("El segundo y tercer numero son iguales y mayores que el primero\n");
         } else (a == b && b == c) {
-        printf("Los tres numeros son iguales\n");
+            printf("Los tres numeros son iguales\n");
         }
 }
 
