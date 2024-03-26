@@ -27,10 +27,14 @@ void NotaF(float not1, float not2, float not3, float notf, float tpf){
     float notaf = (promedio + notf + tpf) / 3;
     printf("La nota final sera de: %.2f\n", notaf);
 }
+void numPar(int num1, int num2){
+    if
+}
 
 int main(void){
     int alu;
     float not1, not2, not3, notf, tpf;
+    int num1, num2;
     int opcion;
     scanf("%d", &opcion);
     switch(opcion){
@@ -47,6 +51,12 @@ int main(void){
             NotaF(not1, not2, not3, notf, tpf);
             break;
         case 4:
+            printf("Ingresa el primer numero de inicio");
+            scanf("%d", &num1);
+            printf("Ingresa el segundo numero de inicio");
+            scanf("%d", &num2);
+            numPar(num1, num2);
+            break;
     }
     return 0;
 }
