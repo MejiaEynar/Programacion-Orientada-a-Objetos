@@ -22,9 +22,31 @@ void costo(int alu){
     }
 }
 
+void NotaF(float not1, float not2, float not3, float notf, float tpf){
+    float promedio = (not1 + not2 + not3) / 3;
+    float notaf = (promedio + notf + tpf) / 3;
+    printf("La nota final sera de: %.2f\n", notaf);
+}
+
 int main(void){
     int alu;
-    scanf("%d", &alu);
-    costo(alu);
+    float not1, not2, not3, notf, tpf;
+    int opcion;
+    scanf("%d", &opcion);
+    switch(opcion){
+        case 1:
+            scanf("%d", &alu);
+            costo(alu);
+            break;
+        case 2:
+            
+        case 3:
+            printf("Ingresar las notas de los 3 parciales\n");
+            printf("Luego la nota del examen final y luego del trabajo final\n");
+            scanf("%f %f %f %f %f", &not1, &not2, &not3, &notf, &tpf);
+            NotaF(not1, not2, not3, notf, tpf);
+            break;
+        case 4:
+    }
     return 0;
 }
