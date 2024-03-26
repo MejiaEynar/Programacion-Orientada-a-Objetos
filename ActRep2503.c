@@ -43,12 +43,23 @@ void numPar(int num1, int num2){
     printf("\n");
 }
 
+void MRU(int km_c1, int km_c2){
+    int v = 1;
+    int distancia_c1_c2 = km_c2 - km_c1;
+    float t = (float)distancia_c1_c2 / (2 * v);
+    int km_encuentro = km_c1 + v * t;
+    printf("los coches se encontran en el Km: %d\n", km_encuentro);
+}
+
 int main(void){
+    
     int alu; // Variable para el ejercicio 1
     float sueldob, v1, v2, v3, comicion, comicionT; // Variables para el ejercicio 2
     float not1, not2, not3, notf, tpf; // Variables para el ejercicio 3
     int num1, num2; // Variables para el ejercicio 4
+    int km_c1, km_c2; // Variables para el ejercicio 5
     int opcion;
+    
     scanf("%d", &opcion);
     switch(opcion){
         case 1:
@@ -76,6 +87,15 @@ int main(void){
             printf("Los numeros pares entre %d y %d son: ",num1 ,num2);
             numPar(num1, num2);
             break;
+        case 5:
+            printf("Ingrese la distancia del primer coche:\n");
+            scanf("%d", &km_c1);
+            printf("Ingrese la distancia del segundo coche:\n");
+            scanf("%d", &km_c2);
+            MRU(km_c1, km_c2);
+        default:
+            break;
+
     }
     return 0;
 }
