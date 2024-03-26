@@ -21,7 +21,12 @@ void costo(int alu){
         printf("Cada alumno debera pagar $%.2f\n", t);
     }
 }
-void SueldoT(float sueldob, float v1, float v2, float v3){
+void SueldoTotal(float sueldob, float v1, float v2, float v3){
+    float comicion = (v1 + v2 + v3) / 0.1;
+    float comicionT = comicion * 3;
+    float SueldoT = sueldob + comicionT;
+    printf("El sueldo a final de mes que recibira es de: %.2f\n", comicionT);
+    printf("El concepto por comicion de las 3 ventas es de: %.2f\n", SueldoT);
 }
 
 void NotaF(float not1, float not2, float not3, float notf, float tpf){
@@ -40,7 +45,7 @@ void numPar(int num1, int num2){
 
 int main(void){
     int alu; // Variable para el ejercicio 1
-    float sueldob, v1, v2, v3;
+    float sueldob, v1, v2, v3, comicion, comicionT; // Variables para el ejercicio 2
     float not1, not2, not3, notf, tpf; // Variables para el ejercicio 3
     int num1, num2; // Variables para el ejercicio 4
     int opcion;
@@ -55,6 +60,8 @@ int main(void){
             scanf("%f", &sueldob);
             printf("Ingresar el valor de las 3 comiciones\n");
             scanf("%f %f %f", &v1, &v2, &v3);
+            SueldoTotal(sueldob, v1, v2, v3);
+            break;
         case 3:
             printf("Ingresar las notas de los 3 parciales\n");
             printf("Luego la nota del examen final y luego del trabajo final\n");
