@@ -19,7 +19,6 @@ void parOinparmayorque0(int n){
         printf("El número ingresado no es válido. Debe ser positivo y mayor que cero.\n");
     }
 }
-// Ejercicio N°4
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
