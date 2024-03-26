@@ -28,7 +28,12 @@ void NotaF(float not1, float not2, float not3, float notf, float tpf){
     printf("La nota final sera de: %.2f\n", notaf);
 }
 void numPar(int num1, int num2){
-    if
+    for (int i = num1; i <= num2; i++) {
+        if (i % 2 == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
 }
 
 int main(void){
@@ -55,6 +60,7 @@ int main(void){
             scanf("%d", &num1);
             printf("Ingresa el segundo numero de inicio");
             scanf("%d", &num2);
+            printf("Los numeros pares entre %d y %d son: ",num1 ,num2);
             numPar(num1, num2);
             break;
     }
