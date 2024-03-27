@@ -31,7 +31,7 @@ void apro(float not1, float not2, float not3, float not4, float tarea){
         printf("La nota de alumno es de: %.2f\n", notA);
         printf("Por lo tanto aprobo la materia.");
     } else {
-        printf("El alumno no figura en la lista.")
+        printf("El alumno no figura en la lista.");
     }
 }
 
@@ -66,6 +66,15 @@ void hora(int hh, int mm){
     }
 }
 
+// Ejercicio 8
+void ahorroT(float capital, int meses){
+    for (int i = 0; i < meses; i++){
+        float pagb = capital * 0.02;
+        capital = capital + pagb;
+    }
+    printf("%.2f\n", capital);
+}
+
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
@@ -73,6 +82,10 @@ int main(void){
     float not1, not2, not3, not4, tarea; // Variables jercicio 4
     int sueldo;
     int hh, mm;
+    
+    float capital;
+    int meses;
+    
     int nota;
     int opcion;
     scanf("%d", &opcion);
@@ -105,13 +118,18 @@ int main(void){
             apro2(nota);
             break;
         case 6:
-            scanf("%d", &sueldo)
+            scanf("%d", &sueldo);
             impuesto(sueldo);
             break;
         case 7:
             scanf("%d", &hh);
             scanf("%d", &mm);
             hora(hh, mm);
+            break;
+         case 8:
+            scanf("%f", &capital);
+            scanf("%d", &meses);
+            ahorroT(capital, meses);
             break;
         default:
             break;
