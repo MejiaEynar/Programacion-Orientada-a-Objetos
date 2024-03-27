@@ -49,11 +49,30 @@ void apro2(float nota){
         printf("El alumno no aprobo\n");
     } 
 }
+// Ejercicio 6
+void impuesto(int sueldo){
+}
+
+// Ejercicio 7
+void hora(int hh, int mm){
+    if(hh < 0 || mm < 0){
+        printf("Error, ingrese numeros positivos\n");
+    }else if (hh > 23 || mm > 59){
+        printf("Error, ingrese un en hora un numero menor a 24 y en minutos un numero inferior o igual a 59\n");
+    }else if(hh <= 12 && hh > 0){
+        printf("%d:%d am", hh, mm);
+    }else if(hh > 12 || hh == 0){
+        printf("%d:%d pm", hh, mm);
+    }
+}
+
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
     int n; //Variable del ejercicio 3
     float not1, not2, not3, not4, tarea; // Variables jercicio 4
+    int sueldo;
+    int hh, mm;
     int nota;
     int opcion;
     scanf("%d", &opcion);
@@ -70,20 +89,29 @@ int main(void){
             break;
         case 4:
             printf("Ingresa la nota de la primera prueba: ");
-            scanf("%f ", not1);
+            scanf("%f ", &not1);
             printf("Ingresa la nota de la segunda prueba: ");
-            scanf("%f ", not2);
+            scanf("%f ", &not2);
             printf("Ingresa la nota de la tercera prueba: ");
-            scanf("%f ", not3);
+            scanf("%f ", &not3);
             printf("Ingresa la nota de la cuarta prueba: ");
-            scanf("%f ", not4);
+            scanf("%f ", &not4);
             printf("Ingresa la nota de la tarea: ");
-            scanf("%f ", tarea);
+            scanf("%f ", &tarea);
             apro(not1, not2, not3, not4, tarea);
             break;
         case 5:
-            scanf("%d", %nota);
+            scanf("%d", &nota);
             apro2(nota);
+            break;
+        case 6:
+            scanf("%d", &sueldo)
+            impuesto(sueldo);
+            break;
+        case 7:
+            scanf("%d", &hh);
+            scanf("%d", &mm);
+            hora(hh, mm);
             break;
         default:
             break;
