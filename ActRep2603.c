@@ -19,10 +19,24 @@ void parOinparmayorque0(int n){
         printf("El número ingresado no es válido. Debe ser positivo y mayor que cero.\n");
     }
 }
+// Ejercicio 4
+void apro(float not1, float not2, float not3, float not4, float tarea){
+    float notA = (not1 + not2 + not3 + not4 + tarea) / 5;
+    if(notA >= 0 && notA <= 5){
+        printf("La nota de alumno es de: %.2f\n", notA);
+        printf("Por lo tanto no aprobo la materia.");
+    } else if(notA >= 6 && notA <= 10){
+        printf("La nota de alumno es de: %.2f\n", notA);
+        printf("Por lo tanto aprobo la materia.");
+    } else {
+        printf("El alumno no figura en la lista.")
+    }
+}
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
     int n; //Variable del ejercicio 3
+    float not1, not2, not3, not4, tarea;
     int opcion;
     scanf("%d", &opcion);
     switch(opcion){
@@ -37,6 +51,17 @@ int main(void){
             parOinparmayorque0(n);
             break;
         case 4:
+            printf("Ingresa la nota de la primera prueba: ");
+            scanf("%f ", not1);
+            printf("Ingresa la nota de la segunda prueba: ");
+            scanf("%f ", not2);
+            printf("Ingresa la nota de la tercera prueba: ");
+            scanf("%f ", not3);
+            printf("Ingresa la nota de la cuarta prueba: ");
+            scanf("%f ", not4);
+            printf("Ingresa la nota de la tarea: ");
+            scanf("%f ", tarea);
+            apro(not1, not2, not3, not4, tarea);
             break;
         case 5:
             break;
