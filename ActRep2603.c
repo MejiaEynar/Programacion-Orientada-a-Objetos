@@ -75,17 +75,33 @@ void ahorroT(float capital, int meses){
     printf("%.2f\n", capital);
 }
 
+// Ejercicio 9
+void a_que_edad(int edad1, int edad2){
+    int t1 = edad1;
+    int t2 = edad2;
+    for(int i = edad1; i > (edad2 * 2); i++){
+        edad1 = edad1 + 1;
+        edad2 = edad2 + 1;
+        if(edad1 == (edad2 * 2)){
+            printf("El padre tiene %d y el hijo %d\n", t1, t2);
+            printf("Por ende debe pasar %d años para que el padre tenga el doble de edad que su hijo\n", (i-t1)+ 1);
+            break;
+        }
+    }
+}
+
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
     int n; //Variable del ejercicio 3
     float not1, not2, not3, not4, tarea; // Variables jercicio 4
     int sueldo;
-    int hh, mm;
+    int hh, mm;//Variable del ejercicio 7
     
     float capital;
     int meses;
     
+    int edad1, edad2;
     int nota;
     int opcion;
     scanf("%d", &opcion);
@@ -126,10 +142,17 @@ int main(void){
             scanf("%d", &mm);
             hora(hh, mm);
             break;
-         case 8:
+        case 8:
             scanf("%f", &capital);
             scanf("%d", &meses);
             ahorroT(capital, meses);
+            break;
+        case 9:
+            printf("Ingrese la edad del padre\n");
+            scanf("%d", &edad1);
+            printf("Ingrese la edad del hijo/a\n");
+            scanf("%d", &edad2);
+            a_que_edad(edad1, edad2);
             break;
         default:
             break;
