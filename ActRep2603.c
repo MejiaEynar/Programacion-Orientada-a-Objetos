@@ -90,6 +90,30 @@ void a_que_edad(int edad1, int edad2){
     }
 }
 
+//Base Ejercicio 10
+/*
+int main(){
+    int segundos = 40000;
+    int horas = 0;
+    int minutos = 0;
+    int t = segundos;
+        if(segundos >= 3600){
+            t = segundos - 3600;
+            for(int i = 0; t >= i; i++){
+                if(segundos >= 60){
+                    t = t - 60;
+                    minutos = minutos + 1;
+                    if(minutos > 60){
+                        horas = horas + 1;
+                        minutos = t - minutos;
+                    }
+                }
+            }
+        printf("son las %d/%d/%d", horas, minutos,t);
+        }
+}
+*/
+
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
