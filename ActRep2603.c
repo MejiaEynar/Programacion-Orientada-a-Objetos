@@ -114,6 +114,12 @@ int main(){
 }
 */
 
+// Ejercicio 13
+void Pago(float pago, float descuento){
+    float t = (pago * descuento) / 100;
+    t = pago - t; 
+    printf("%.2f", t);
+}
 
 int main(void){
     float n1, n2, n3; //Variable del ejercicio 2
@@ -127,6 +133,7 @@ int main(void){
     
     int edad1, edad2;
     int nota;
+    float pago, descuento; //Variables del ejercicio 13
     int opcion;
     scanf("%d", &opcion);
     switch(opcion){
@@ -177,6 +184,19 @@ int main(void){
             printf("Ingrese la edad del hijo/a\n");
             scanf("%d", &edad2);
             a_que_edad(edad1, edad2);
+            break;
+        case 10:
+            break;
+        case 11:
+            break;
+        case 12:
+            break;
+        case 13:
+            printf("Ingrese el pago a realizar: ");
+            scanf("%f", &pago);
+            printf("Ingrese el descuento que se hara: ");
+            scanf("%f", &descuento);
+            Pago(pago, descuento);
             break;
         default:
             break;
