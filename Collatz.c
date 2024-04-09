@@ -1,20 +1,25 @@
 #include<stdio.h>
 #include<math.h>
 
-int main(){
-   int collatz = 6;
+void Collatz(int collatz){
     int t;
-    printf("%d\n", collatz);
-    if(collatz % 2 == 0){
-        t = collatz;
-        collatz = collatz / 2;
-        printf("%d\n", collatz);
-        if(collatz % 2 != 0){
-            t = collatz;
+    printf("%d ", collatz);
+    while(collatz != 1){
+        if(collatz % 2 == 0){
+            collatz = collatz / 2;
+        } else{
             collatz = (collatz * 3) + 1;
-            
         }
-        printf("%d\n", collatz);
+        printf("%d ", collatz);
     }
-    
+}
+
+int main(void){
+   int collatz;
+   printf("Ingrese un numero: ");
+   scanf("%d", &collatz);
+   printf("La conjetura collatz del %d\n", collatz);
+   printf("Es la siguiente: ");
+   Collatz(collatz);
+    return 0;
 }
