@@ -31,3 +31,21 @@ main ()
 	}
       
 }
+
+/*
+No entendi bien si queria que se indicara las formas en las que se podia optimizar este codigo
+o si queria que en una "caja" como esta. Escribieramos en codigo los cambios a hacer.
+*/
+/*
+Opcion 1(No codigo):
+	Lo que se podria hacer para mejorar el codigo para que este aceptara matrices de un tamaño
+	ingresado por el usuario. A travez de una funcion haciendo uso del scanf para obtener el tamaño 
+	de la matriz. Y este llevarlo a una funcion en la cual se crearia la matriz y en la misma se solicitarian
+	los valores que serian ingresados en la matriz. Tambien se podria dar a escojer al usuario si este quiere rellenar
+	la matriz de forma manual o que esta se rellene automaticamente con numeros aleatorios.
+*/
+/*
+Opcion 2(codigo):
+
+
+*/
