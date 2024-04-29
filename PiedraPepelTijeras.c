@@ -14,10 +14,14 @@ void Juego(){
     int JugadaP;
     printf("Ingrese una de las opciones:");
     scanf("%d", &JugadaP);
-    int Maquina = JugadaM;
-    printf("La maquina escoje: %d\n", JugadaM);
-    if(Maquina == JugadaP){
-        printf("Empate");
+    int Maquina = JugadaM();
+    printf("La maquina escoje: %d\n", Maquina);
+    if((JugadaP == 1 && Maquina == 3) || (JugadaP == 3 && Maquina == 2) || (JugadaP == 2 && Maquina == 1)){
+        printf("El jugador gana\n");
+    }else if((JugadaP == 3 && Maquina == 1) || (JugadaP == 2 && Maquina == 3) || (JugadaP == 1 && Maquina == 2)){
+        printf("El jugador pierde\n");
+    }else{
+        printf("Es un empate\n");
     }
 }
 
@@ -34,11 +38,11 @@ int main() {
     do {
         switch (opcion) {
             case 1:
-                printf("Comienza el campeonato\n");
+                printf("\nComienza el campeonato\n");
                 for(int ronda = 1; ronda <= 5; ronda++){
-                    printf("Ronda: %d\n", ronda);
-                    for(int partida = 1; partida <= 3; partida){
-                        printf("Partida: %d\n", partida);
+                    printf("\nRonda: %d\n", ronda);
+                    for(int partida = 1; partida <= 3; partida++){
+                        printf("\nPartida: %d\n", partida);
                         Juego();
                     }
                 }
