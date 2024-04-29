@@ -6,6 +6,21 @@ int JugadaM() {
     return rand() % 3 + 1;
 }
 
+void Juego(){
+    printf("Escoja una opcion:\n");
+    printf("1 Piedra\n");
+    printf("2 Papel\n");
+    printf("3 Tijera\n");
+    int JugadaP;
+    printf("Ingrese una de las opciones:");
+    scanf("%d", &JugadaP);
+    int Maquina = JugadaM;
+    printf("La maquina escoje: %d\n", JugadaM);
+    if(Maquina == JugadaP){
+        printf("Empate");
+    }
+}
+
 int main() {
     srand(time(NULL));
     int opcion;
@@ -19,9 +34,17 @@ int main() {
     do {
         switch (opcion) {
             case 1:
+                printf("Comienza el campeonato\n");
+                for(int ronda = 1; ronda <= 5; ronda++){
+                    printf("Ronda: %d\n", ronda);
+                    for(int partida = 1; partida <= 3; partida){
+                        printf("Partida: %d\n", partida);
+                        Juego();
+                    }
+                }
             case 2:
                 printf("El Campeonato constara de 5 rondas\n");
-                printf("Cada ronda constara de 3 vueltas\n");
+                printf("Cada ronda constara de 3 partidas\n");
                 printf("Se debera escojer una de las siguientes opciones:\n");
                 printf("Piedra = 1\n");
                 printf("Papel = 2\n");
