@@ -1,13 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+int JugadaM() {
+    return rand() % 3 + 1;
+}
 
 int main() {
+    srand(time(NULL));
     int opcion;
     printf("Bienvenido/a al campeonato de Piedra, Papel o Tijeras\n");
     printf("Escoja una de las siguientes opciones:\n");
     printf("1) Participar\n");
     printf("2) Reglas\n");
     printf("3) Salir del programa\n");
+    printf("Ingrese la opcion:");
     scanf("%d", &opcion);
     do {
         switch (opcion) {
@@ -19,7 +26,8 @@ int main() {
                 printf("Piedra = 1\n");
                 printf("Papel = 2\n");
                 printf("Tijera = 3\n");
-                break;
+                printf("Ingrese 1 para entrar al Campeonato o 3 para salir:");
+                scanf("%d", &opcion);
             case 3:
                 printf(". . . Saliendo del Programa . . .\n");
                 break;
