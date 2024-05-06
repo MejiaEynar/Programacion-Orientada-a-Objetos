@@ -37,10 +37,10 @@ void Juego(int *t1, int *t2){
 
     if(ganador == 1){
         *t1 = *t1 + 1;
-        printf("Felicidades por haber ganado el campeonato!\n");
+        printf("El jugador gano la ronda.\n");
     }else if(ganador < 0){
         *t2 = *t2 + 1;
-        printf("Mejor suerte la próxima.\n");
+        printf("La maquina gano la ronda.\n");
     } else {
         printf("La ronda terminó en empate.\n");
     }
