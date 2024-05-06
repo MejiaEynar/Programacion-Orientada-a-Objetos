@@ -23,12 +23,15 @@ void Juego(int *t1, int *t2){
     printf("3 Tijera\n");
 
     int JugadaP;
-    printf("Ingrese una de las opciones: ");
-    scanf("%d", &JugadaP);
-    while(JugadaP < 1 || JugadaP > 3){
-        printf("Opcion invalida, ingrese una opcion valida: ");
-        scanf("%d", &JugadaP);
-    }
+    do {
+        printf("Ingrese una de las opciones: ");
+        if (scanf("%d", &JugadaP) != 1 || JugadaP < 1 || JugadaP > 3) {
+            printf("Opcion invalida, ingrese una opcion valida.\n");
+            while (getchar() != '\n');
+        } else {
+            break;
+        }
+    } while (1);
 
     int Maquina = JugadaM();
     printf("La maquina escoje: %d\n", Maquina);
