@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+void limpiarPantalla() {
+    system("clear || cls");
+}
+
 int dibujarTablero(int c, int f){
     for(int i = 0;i < f; i++){
         printf("[ ");
@@ -22,8 +26,9 @@ int main(){
         case 1:
             do{
                 printf("\nIngrese el numero de Columnas: ");
-                if (scanf("%d", &c) != 1 || c < 1){
-                        printf("Opcion invalida, ingrese una opcion valida.\n");
+                if (scanf("%d", &c) != 1 || c < 4){
+                        limpiarPantalla();
+                        printf("\nOpcion invalida, ingrese una opcion valida.\n");
                     while (getchar() != '\n');
                 } else {
                     break;
@@ -31,20 +36,32 @@ int main(){
             } while (1);
             do{
                 printf("\nIngrese el numero de Filas: ");
-                if (scanf("%d", &f) != 1 || f < 1){
-                        printf("Opcion invalida, ingrese una opcion valida.\n");
+                if (scanf("%d", &f) != 1 || f < 4){
+                        limpiarPantalla();
+                        printf("\nOpcion invalida, ingrese una opcion valida.\n");
                     while (getchar() != '\n');
                 } else {
                     break;
                 }
             } while (1);
+            limpiarPantalla();
+            printf("El tablero de juego sera de:\n");
+            printf("Columnas: %d\n", c);
+            printf("Filas: %d\n", f);
             dibujarTablero(c,f);
             break;
         case 2:
+            
             break;
         case 3:
+            printf("\nEsperamos que vuelva a participar pronto.\n");
+            printf("\n. . . Saliendo del Programa . . .\n");
             break;
         default:
+            printf("\n. . . ERROR . . .\n");
+            printf("\nEl numero ingresado es invalido\n");
+            printf("Porfavor ingrese una opcion valida: ");
+            scanf("%d", &op);
             break;
     }
     }while(op != 3);
