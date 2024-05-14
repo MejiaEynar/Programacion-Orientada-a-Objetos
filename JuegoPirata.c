@@ -7,15 +7,50 @@ void limpiarPantalla() {
     system("clear || cls");
 }
 
-void GenerarTablero(){
+void GenerarTablero(int ***tablero, int f, int c){
     srand(time(NULL));
+    *tablero = (int **)malloc(f * sizeof(int *));
+    for (int i = 0; i < f; i++) {
+        (*tablero)[i] = (int *)malloc(c * sizeof(int));
+    }
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < c; j++) {
+            if (i == 0 || i == f - 1 || j == 0 || j == c - 1) {
+                (*tablero)[i][j] = 'X';
+            } else {
+                (*tablero)[i][j] = ' ';
+            }
+        }
+    }
+    int f_p = rand() % (f - 2) + 1;
+    int c_p = rand() % (c - 2) + 1;
+    (*tablero)[f_p][c_p] = 'P';
+
+    int f_tesoro, c_tesoro;
+    do {
+        f_tesoro = rand() % (f - 2) + 1;
+        c_tesoro = rand() % (c - 2) + 1;
+    } while ((*tablero)[f_tesoro][c_tesoro] != ' ');
+    (*tablero)[f_tesoro][c_tesoro] = 'T';
 }
 
 int dibujarTablero(int **tablero, int f, int c, int f_p, int c_p){
+    for (int i = 0; i < f; i++) {
+        printf("[ ");
+        for (int j = 0; j < c; j++) {
+            if (i == f_p && j == c_p) {
+                printf("P ");
+            } else {
+                printf("%c ", tablero[i][j]);
+            }
+        }
+        printf("]\n");
+    }
 }
 
 int main(){
-    int f, c, op;
+    int f, c; 
+    int op, opd;
     int **Matriz = NULL;
     printf("¡Bienvenido al juego del Pirata\n");
     do{
@@ -31,7 +66,7 @@ int main(){
                 printf("2. Difícil\n");
                 do{
                     printf("\nSeleccione la dificultad: ");
-                    if (scanf("%d", &f) != 1 || f > 2){
+                    if (scanf("%d", &opd) != 1 || f > 2){
                             limpiarPantalla();
                             printf("1. Normal\n");
                             printf("2. Difícil\n");
@@ -62,10 +97,10 @@ int main(){
                     }
                 } while (1);
                 limpiarPantalla();
-                GenerarTablero();
                 printf("El tablero de juego sera de:\n");
                 printf("Columnas: %d\n", c);
                 printf("Filas: %d\n", f);
+                GenerarTablero(&Matriz, f, c);
                 printf("¿Desea ver el tablero? (1: Sí / 0: No): ");
                 int op_tablero;
                 scanf("%d", &op_tablero);
