@@ -48,6 +48,63 @@ int dibujarTablero(int **tablero, int f, int c, int f_p, int c_p){
     }
 }
 
+int buscarTesoro(int **tablero, int f, int c, int *f_p, int *c_p, int *movs_r){
+    char direccion[10];
+    int fila_anterior = *f_p;
+    int columna_anterior = *c_p;
+
+    while (*movs_r > 0) {
+        printf("Ingrese una dirección (norte, sur, este, oeste): ");
+        scanf("%s", direccion);
+
+        
+        fila_anterior = *f_p;
+        columna_anterior = *c_p;
+
+        if (strcmp(direccion, "norte") == 0) {
+            if (*f_p > 1) {
+                (*f_p)--;
+            }
+        } else if (strcmp(direccion, "sur") == 0) {
+            if (*f_p < f - 2) {
+                (*f_p)++;
+            }
+        } else if (strcmp(direccion, "este") == 0) {
+            if (*c_p < c - 2) {
+                (*c_p)++;
+            }
+        } else if (strcmp(direccion, "oeste") == 0) {
+            if (*c_p > 1) {
+                (*c_p)--;
+            }
+        }
+
+        
+        if (tablero[*f_p][*c_p] == 'X') {
+            
+            if (*movs_r == 50) {
+                *movs_r -= 2; 
+            } else {
+                *movs_r -= 4; 
+            }
+            printf("¡El pirata ha pisado el agua! Pierdes %d intentos.\n", (*movs_r == 50) ? 2 : 4);
+            printf("Movimientos restantes: %d\n", *movs_r);
+            dibujarTablero(tablero, f, c, *f_p, *c_p);
+            
+            *f_p = fila_anterior;
+            *c_p = columna_anterior;
+        } else {
+            (*movs_r)--;
+            printf("Movimientos restantes: %d\n", *movs_r);
+            dibujarTablero(tablero, f, c, *f_p, *c_p);
+        }
+
+        if (tablero[*f_p][*c_p] == 'T') {
+            return 1; 
+        }
+}
+}
+
 int main(){
     int f, c; 
     int op, opd;
@@ -107,6 +164,30 @@ int main(){
                 if (op_tablero) {
                     printf("\nTablero:\n");
                     dibujarTablero(Matriz, f, c, -1, -1);
+                }
+                switch(opd){
+                    case 1:
+                        int f_p, c_p;
+                        int movs_r = 50;
+                        
+                        for (int i = 1; i < f - 1; i++) {
+                            for (int j = 1; j < c - 1; j++) {
+                                if (Matriz[i][j] == 'P') {
+                                    f_p = i;
+                                    c_p = j;
+                                    break;
+                                }
+                            }
+                        }
+
+                        int tesoro = buscarTesoro(Matriz, f, c, &f_p, &c_p, &movs_r);
+                        if (tesoro) {
+                            printf("¡Has encontrado el tesoro!\n");
+                        } else {
+                            printf("No has encontrado el tesoro.\n");
+                        }
+                    case 2:
+                    default:
                 }
                 break;
             case 2:
