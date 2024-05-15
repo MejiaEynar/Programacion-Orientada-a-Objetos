@@ -36,19 +36,23 @@ void GenerarTablero(int ***tablero, int f, int c){
 
 int dibujarTablero(int **tablero, int f, int c, int f_p, int c_p){
     for (int i = 0; i < f; i++) {
-        printf("[ ");
+        printf("|");
         for (int j = 0; j < c; j++) {
             if (i == f_p && j == c_p) {
-                printf("P ");
+                printf("\x1b[47m  \x1b[0m");
+            } else if (tablero[i][j] == 'X') {
+                printf("\x1b[44m  \x1b[0m");
+            } else if (tablero[i][j] == 'T') {
+                printf("\x1b[42m  \x1b[0m");
             } else {
-                printf("%c ", tablero[i][j]);
+                printf("\x1b[42m  \x1b[0m");
             }
         }
-        printf("]\n");
+        printf("|\n");
     }
 }
 
-int buscarTesoro(int **tablero, int f, int c, int *f_p, int *c_p, int *movs_r){
+int buscarTesoro(int **tablero, int f, int c, int *f_p, int *c_p, int *movs_r, int dificultad){
     char direccion[10];
     int fila_anterior = *f_p;
     int columna_anterior = *c_p;
@@ -82,12 +86,12 @@ int buscarTesoro(int **tablero, int f, int c, int *f_p, int *c_p, int *movs_r){
         
         if (tablero[*f_p][*c_p] == 'X') {
             
-            if (*movs_r == 50) {
+            if (*movs_r == 50 && dificultad == 1) {
                 *movs_r -= 2; 
             } else {
-                *movs_r -= 4; 
+                *movs_r -= 5; 
             }
-            printf("¡El pirata ha pisado el agua! Pierdes %d intentos.\n", (*movs_r == 50) ? 2 : 4);
+            printf("¡El pirata ha pisado el agua! Pierdes %d intentos.\n", (*movs_r == 50 && dificultad == 1) ? 2 : 4);
             printf("Movimientos restantes: %d\n", *movs_r);
             dibujarTablero(tablero, f, c, *f_p, *c_p);
             
@@ -123,7 +127,7 @@ int main(){
                 printf("2. Difícil\n");
                 do{
                     printf("\nSeleccione la dificultad: ");
-                    if (scanf("%d", &opd) != 1 || f > 2){
+                    if (scanf("%d", &opd) != 1 || opd > 2){
                             limpiarPantalla();
                             printf("1. Normal\n");
                             printf("2. Difícil\n");
@@ -180,47 +184,45 @@ int main(){
                             }
                         }
 
-                        int tesoro = buscarTesoro(Matriz, f, c, &f_p, &c_p, &movs_r);
+                        int tesoro = buscarTesoro(Matriz, f, c, &f_p, &c_p, &movs_r, opd);
                         if (tesoro) {
                             printf("¡Has encontrado el tesoro!\n");
                         } else {
                             printf("No has encontrado el tesoro.\n");
                         }
+                        break;
                     case 2:
-                        int f_p, c_p;
-                        int movs_r = 25;
+                        int f_p_d, c_p_d;
+                        int movs_r_d = 25;
                         for (int i = 1; i < f - 1; i++) {
                             for (int j = 1; j < c - 1; j++) {
                                 if (Matriz[i][j] == 'P') {
-                                 f_p = i;
-                                    c_p = j;
+                                    f_p_d = i;
+                                    c_p_d = j;
                                     break;
                                 }
                             }
                         }
 
-                        while (movs_r > 0) {
-                            printf("\nIntentos restantes: %d\n", movs_r);
+                        while (movs_r_d > 0) {
+                            printf("\nIntentos restantes: %d\n", movs_r_d);
 
-                            int tesoro = buscarTesoro(Matriz, f, c,  f_p, &c_p, &movs_r);
+                            int tesoro = buscarTesoro(Matriz, f, c,  &f_p_d, &c_p_d, &movs_r, opd);
                             if (tesoro) {
                                 printf("¡Has encontrado el tesoro!\n");
                                 break;
                             } else {
                                 printf("No has encontrado el tesoro en este intento.\n");
-                                movs_r--;
+                                movs_r_d--;
                             }
                         }
 
-                        if (movs_r == 0) {
+                        if (movs_r_d == 0) {
                             printf("\nSe te han acabado los intentos.\n");
                         }
-
-                        break;
-                    }
                     default:
+                    break;
                 }
-                break;
             case 2:
                 printf("\nEsperamos que vuelva a participar pronto.\n");
                 printf("\n. . . Saliendo del Programa . . .\n");
