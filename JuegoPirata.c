@@ -187,6 +187,37 @@ int main(){
                             printf("No has encontrado el tesoro.\n");
                         }
                     case 2:
+                        int f_p, c_p;
+                        int movs_r = 25;
+                        for (int i = 1; i < f - 1; i++) {
+                            for (int j = 1; j < c - 1; j++) {
+                                if (Matriz[i][j] == 'P') {
+                                 f_p = i;
+                                    c_p = j;
+                                    break;
+                                }
+                            }
+                        }
+
+                        while (movs_r > 0) {
+                            printf("\nIntentos restantes: %d\n", movs_r);
+
+                            int tesoro = buscarTesoro(Matriz, f, c,  f_p, &c_p, &movs_r);
+                            if (tesoro) {
+                                printf("¡Has encontrado el tesoro!\n");
+                                break;
+                            } else {
+                                printf("No has encontrado el tesoro en este intento.\n");
+                                movs_r--;
+                            }
+                        }
+
+                        if (movs_r == 0) {
+                            printf("\nSe te han acabado los intentos.\n");
+                        }
+
+                        break;
+                    }
                     default:
                 }
                 break;
@@ -201,5 +232,5 @@ int main(){
                 scanf("%d", &op);
                 break;
         }
-    }while(op != 3);
+    }while(op != 2);
 }
