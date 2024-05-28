@@ -9,9 +9,22 @@ void limpiarPantalla() {
     system("clear || cls");
 }
 
-void inicializarTablero(){}
+void inicializarTablero(char tablero[f][c]){
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < c; j++) {
+            tablero[i][j] = ' ';
+        }
+    }
+}
 
-void dibujarTablero(){}
+void dibujarTablero(char tablero[f][c]){
+    printf("\n");
+    for (int i = 0; i < f; i++) {
+        printf(" %c | %c | %c \n", tablero[i][0], tablero[i][1], tablero[i][2]);
+        if (i != f - 1)
+            printf("---|---|---\n");
+    }
+}
 
 void verificarGanador(){}
 
